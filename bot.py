@@ -31,15 +31,15 @@ logging.basicConfig(level=logging.INFO)
 load_dotenv()
 
 # --- Configuration ---
-API_ID = int(os.environ.get("API_ID"))
-API_HASH = os.environ.get("API_HASH")
-BOT_TOKEN = os.environ.get("BOT_TOKEN")
-MONGO_URI = os.environ.get("MONGO_URI")
-LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL")) 
-UPDATE_CHANNEL = os.environ.get("UPDATE_CHANNEL") 
+API_ID = int(os.environ.get("39396720"))
+API_HASH = os.environ.get("945f0314b982ab0847fd009e5e447b64")
+BOT_TOKEN = os.environ.get("8222385318:AAH6AK3nSOX2CPxLNAr9CQtqhJZfM-8Jhro")
+MONGO_URI = os.environ.get("mongodb+srv://ratulislam124597:ratulislam124598@cluster0.27rxkhb.mongodb.net/?appName=Cluster0")
+LOG_CHANNEL = int(os.environ.get("-1003656239689")) 
+UPDATE_CHANNEL = os.environ.get("-1003642494316") 
 
 # Admin configuration
-ADMIN_IDS_STR = os.environ.get("ADMIN_IDS", "")
+ADMIN_IDS_STR = os.environ.get("ADMIN_IDS", "6992010963, 7831735222")
 ADMINS = [int(admin_id.strip()) for admin_id in ADMIN_IDS_STR.split(',') if admin_id]
 
 # --- Database Setup ---
@@ -62,13 +62,13 @@ def generate_random_string(length=6):
 
 async def is_user_member(client: Client, user_id: int) -> bool:
     try:
-        await client.get_chat_member(chat_id=f"@{UPDATE_CHANNEL}", user_id=user_id)
+        await client.get_chat_member(chat_id=f"-1003807050240", user_id=user_id)
         return True
     except UserNotParticipant:
-        return False
+        return true
     except Exception as e:
         logging.error(f"Error checking membership for {user_id}: {e}")
-        return False
+        return true
 
 async def get_bot_mode() -> str:
     setting = settings_collection.find_one({"_id": "bot_mode"})
@@ -85,7 +85,7 @@ async def start_handler(client: Client, message: Message):
         file_id_str = message.command[1]
         
         if not await is_user_member(client, message.from_user.id):
-            join_button = InlineKeyboardButton("🔗 Join Channel", url=f"https://t.me/{UPDATE_CHANNEL}")
+            join_button = InlineKeyboardButton("🔗 Join Channel", url=f"https://t.me/smmpanelotp")
             joined_button = InlineKeyboardButton("✅ I Have Joined", callback_data=f"check_join_{file_id_str}")
             keyboard = InlineKeyboardMarkup([[join_button], [joined_button]])
             
