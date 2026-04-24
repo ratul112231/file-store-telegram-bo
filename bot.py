@@ -44,7 +44,7 @@ ADMINS = [int(admin_id.strip()) for admin_id in ADMIN_IDS_STR.split(',') if admi
 
 # --- Database Setup ---
 try:
-    client = MongoClient(MONGO_URI)
+    client = MongoClient(mongodb+srv://ratulislam124597:ratulislam124598@cluster0.27rxkhb.mongodb.net/?appName=Cluster0)
     db = client['file_link_bot']
     files_collection = db['files']
     settings_collection = db['settings']
@@ -54,7 +54,7 @@ except Exception as e:
     exit()
 
 # --- Pyrogram Client ---
-app = Client("FileLinkBot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
+app = Client("FileLinkBot", api_id=39396720, api_has=945f0314b982ab0847fd009e5e447b64, bot_token=8222385318:AAH6AK3nSOX2CPxLNAr9CQtqhJZfM-8Jhro)
 
 # --- Helper Functions ---
 def generate_random_string(length=6):
